@@ -1,6 +1,6 @@
 ﻿# daza-post2-u8
 
-ExtensiÃƒÂ³n del CRUD de Estudiante con relaciÃƒÂ³n @ManyToMany bidireccional entre Estudiante y Curso, mÃƒÂ¡s gestiÃƒÂ³n de inscripciones.
+Extensión del CRUD de Estudiante con relación @ManyToMany bidireccional entre Estudiante y Curso, más gestión de inscripciones.
 
 ## Estructura por capas
 
@@ -21,17 +21,17 @@ ExtensiÃƒÂ³n del CRUD de Estudiante con relaciÃƒÂ³n @ManyToMany bidirecc
 ## Funcionalidades
 
 - CRUD de estudiantes
-- CRUD bÃƒÂ¡sico de cursos
-- InscripciÃƒÂ³n estudiante-curso con tabla intermedia estudiante_curso
+- CRUD básico de cursos
+- Inscripción estudiante-curso con tabla intermedia estudiante_curso
 - Consulta optimizada de cursos con estudiantes usando JOIN FETCH
 
-## ConfiguraciÃƒÂ³n BD sugerida
+## Configuración BD sugerida
 
 - URL: jdbc:mysql://localhost:3306/estudiantes_db
 - Usuario: appuser
 - Clave: apppass
 
-## EjecuciÃƒÂ³n
+## Ejecución
 
 1. Crear base de datos y usuario en MySQL
 2. Ajustar credenciales en application.properties
@@ -41,5 +41,7 @@ ExtensiÃƒÂ³n del CRUD de Estudiante con relaciÃƒÂ³n @ManyToMany bidirecc
 
 ## Capturas
 
-Guardar evidencias en capturas/.
-
+![curso](capturas/curso.png)
+![inscripciones](capturas/inscripciones.png)
+![nuevas](capturas/nuevas.png)
+![students](capturas/students.png)

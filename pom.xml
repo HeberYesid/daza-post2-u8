@@ -55,6 +55,8 @@
     </dependencies>
 
     <build>
+        <finalName>estudiantes-cursos-jpa</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
