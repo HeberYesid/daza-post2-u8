@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f7fc;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.2rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+      .btn {
+        background: #0d6efd;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.55rem 0.9rem;
+        border-radius: 8px;
+        margin-right: 0.4rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+      th,
+      td {
+        border: 1px solid #e2e8f0;
+        padding: 0.6rem;
+        vertical-align: top;
+      }
+      ul {
+        margin: 0;
+        padding-left: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cursos e Inscripciones</h1>
+      <a class="btn" th:href="@{/cursos/nuevo}">Nuevo curso</a>
+      <a class="btn" th:href="@{/cursos/inscripciones}">Inscribir estudiante</a>
+      <a class="btn" th:href="@{/estudiantes}">Ir a estudiantes</a>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Curso</th>
+            <th>Créditos</th>
+            <th>Estudiantes inscritos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="c : ${cursos}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.nombre}"></td>
+            <td th:text="${c.creditos}"></td>
+            <td>
+              <ul>
+                <li
+                  th:each="e : ${c.estudiantes}"
+                  th:text="${e.nombre + ' (' + e.email + ')'}"
+                ></li>
+              </ul>
+              <span th:if="${#lists.isEmpty(c.estudiantes)}"
+                >Sin inscritos</span
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estudiantes</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f7fc;
+      }
+      .container {
+        max-width: 980px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.2rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+      .btn {
+        background: #0d6efd;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.55rem 0.9rem;
+        border-radius: 8px;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+      .btn-green {
+        background: #198754;
+      }
+      .btn-purple {
+        background: #6f42c1;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #e2e8f0;
+        padding: 0.6rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gestión de Estudiantes</h1>
+      <a class="btn" th:href="@{/estudiantes/nuevo}">Nuevo estudiante</a>
+      <a class="btn btn-green" th:href="@{/cursos}">Ver cursos</a>
+      <a class="btn btn-purple" th:href="@{/cursos/inscripciones}"
+        >Inscripciones</a
+      >
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Carrera</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="e : ${estudiantes}">
+            <td th:text="${e.id}"></td>
+            <td th:text="${e.nombre}"></td>
+            <td th:text="${e.email}"></td>
+            <td th:text="${e.carrera}"></td>
+            <td>
+              <a th:href="@{/estudiantes/editar/{id}(id=${e.id})}">Editar</a>
+              |
+              <a th:href="@{/estudiantes/eliminar/{id}(id=${e.id})}"
+                >Eliminar</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

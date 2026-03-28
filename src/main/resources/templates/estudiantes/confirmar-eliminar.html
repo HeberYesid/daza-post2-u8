@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmar eliminación</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f7fc; }
+        .container { max-width: 540px; margin: 2rem auto; background: #fff; border-radius: 12px; padding: 1.2rem; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+        .danger { background: #dc3545; color: #fff; border: 0; border-radius: 8px; padding: .55rem .9rem; }
+        .btn-sec { background: #6c757d; color: #fff; text-decoration: none; border-radius: 8px; padding: .55rem .9rem; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Confirmar eliminación</h1>
+    <p>¿Seguro que deseas eliminar al estudiante <strong th:text="${estudiante.nombre}"></strong>?</p>
+
+    <form th:action="@{/estudiantes/eliminar/{id}(id=${estudiante.id})}" method="post" style="display:inline;">
+        <button class="danger" type="submit">Eliminar</button>
+    </form>
+    <a class="btn-sec" th:href="@{/estudiantes}">Cancelar</a>
+</div>
+</body>
+</html>
